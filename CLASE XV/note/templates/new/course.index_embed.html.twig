@@ -1,0 +1,17 @@
+{% extends 'new/course.html.twig' %}
+
+
+{% block content %}
+
+    <ul>
+        {% for id_curso in cursos %}
+            <li> 
+                {{ render(controller(
+                    'App\\Controller\\NewController::courseItem',
+                    { 'id': id_curso }
+                    )) 
+                }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'new/course.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ asset('style.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+    
+	
+	<ul>
+	
+		<li><a href="{{ path('new') }}">Link</a></li>
+		<li><a href="{{ path('new_nota', {'nota': 10}) }}">Link con valores</a></li>
+		<li><a href="{{ url('new') }}">Link url absoluta</a></li>
+	<ul>
+    
+	<h4>Asset desde twig</h4>
+    <img src="{{ asset('logo.svg') }}" alt="Symfony!" />
+
+{% endblock %}

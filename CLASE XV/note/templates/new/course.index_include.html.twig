@@ -1,0 +1,13 @@
+{% extends 'new/course.html.twig' %}
+
+
+{% block content %}
+
+    <ul>
+        {% for curso in cursos %}
+            <li> 
+               {{ include('new/course.item.html.twig', { 'curso': curso }) }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello NewController!{% endblock %}
+
+{% block body %}
+
+    {% for message in app.flashes('notice') %}
+        <div style="color:green;font-weight: bold">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+
+    {% for message in app.flashes('warning') %}
+        <div style="color:yellow;font-weight: bold">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+
+    {% for message in app.flashes('error') %}
+        <div style="color:red;font-weight: bold">
+            {{ message }}
+        </div>
+    {% endfor %}
+    
+{% endblock %}
