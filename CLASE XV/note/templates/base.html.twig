@@ -2,22 +2,11 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Bienvenido a OpenWebinars{% endblock %}</title>
+        <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
     </head>
-    <body>     
-        {% block head %}
-            <h1>CURSO SYMFONY 4</h1>
-        {% endblock %}
-        
-        {% block body %}
-               
-                {% block content %}
-                {% endblock %}
-        {% endblock %}            
-                   
-        {% block foot %}
-            <div style="margin: 0 auto;text-align: center;background-color: deeppink;">Footer OpenWebinars</div>{% endblock %}
+    <body>
+        {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
 </html>

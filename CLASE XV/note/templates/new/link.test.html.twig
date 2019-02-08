@@ -1,17 +1,16 @@
-{% extends 'new/course.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block stylesheets %}
     <link href="{{ asset('style.css') }}" rel="stylesheet" />
 {% endblock %}
 
-{% block content %}
+{% block body %}
     
 	
 	<ul>
-	
-		<li><a href="{{ path('new') }}">Link</a></li>
-		<li><a href="{{ path('new_nota', {'nota': 10}) }}">Link con valores</a></li>
-		<li><a href="{{ url('new') }}">Link url absoluta</a></li>
+		<li><a href="{{ path('new_threelevel') }}">Link</a></li>
+		<li><a href="{{ path('new_item', {'id': 1}) }}">Link con valores</a></li>
+		<li><a href="{{ url('new_threelevel') }}">Link url absoluta</a></li>
 	<ul>
     
 	<h4>Asset desde twig</h4>
