@@ -1,0 +1,12 @@
+
+
+{% if app.user %}
+    <p><b>Logged User:</b> {{ app.user.username }}</p>
+{% endif %}         
+<p><b>Username:</b> {{ app.session.get('name') }}</p>
+
+<p><b>Request method:</b> {{ app.request.method }}</p>
+<p><b>Application Environment</b>: {{ app.environment }}</p>
+<p><b>User-agent:</b> {{app.request.headers.get('user-agent')}}</p>
+<p><b>Cookie:</b> {{app.request.headers.get('cookie')}}</p>
+
