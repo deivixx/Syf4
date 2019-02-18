@@ -1,0 +1,15 @@
+{% extends 'note/base.html.twig' %}
+
+{% block content %}
+    
+        <h1 class="text-center">Bienvenido al gestor de notas con Symfony 4!</h1>
+    
+{% endblock %}
+
+
+{% block javascripts %}
+    
+      {{parent()}}   
+      <script src="{{asset('build/home.js')}}"></script>
+    
+{% endblock %}
