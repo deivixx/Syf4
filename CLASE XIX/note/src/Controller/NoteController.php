@@ -4,6 +4,11 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Note;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class NoteController extends AbstractController
 {
@@ -26,5 +31,43 @@ class NoteController extends AbstractController
     }
 
 
+    /**
+     * @Route("/notes/new", name="note_new")
+     */
+    public function new(Request $request)
+    {
+        // Creamos objeto Note
+        $note = new Note();
+      /*  $note->setTitle('Tareas');
+        $note->setNote('Hacer curso Symfony 4');
+        $note->setDueDate(new \DateTime('tomorrow'));
+      */
+        $form = $this->createFormBuilder($note)
+            ->add('title', TextType::class,  ['label' => 'Título'])
+            ->add('note', TextType::class,  ['label' => 'Nota'])
+            ->add('dueDate', DateType::class, ['label' => 'Fecha vencimiento'])
+            ->add('save', SubmitType::class, ['label' => 'Guardar Nota'])
+            ->getForm();
 
+        
+        $form->handleRequest($request);
+
+        
+        if ($form->isSubmitted() && $form->isValid()) {
+            // $form->getData() Contiene los datos enviados
+            $note = $form->getData();
+
+            
+            // ... Aquí podríamos añadir la nota a bbdd
+            
+            // Redirigimos a una pantalla diferente
+            //return $this->redirectToRoute('note_home');
+        }
+        
+        
+        
+        return $this->render('note/new.html.twig', [
+            'form' => $form->createView(),'note'=>$note
+        ]);
+    }
 }
