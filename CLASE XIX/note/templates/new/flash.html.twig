@@ -1,0 +1,27 @@
+{% extends 'new/base.html.twig' %}
+
+{% block title %}{{parent()}} - Mensajes Flash{% endblock %}
+{% block content %}
+
+    <div style="margin:0 auto;background-color: cornflowerblue;text-align: center;">
+        {% for message in app.flashes('notice') %}
+            <div style="color:green;font-weight: bold">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+
+        {% for message in app.flashes('warning') %}
+            <div style="color:yellow;font-weight: bold">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+
+        {% for message in app.flashes('error') %}
+            <div style="color:red;font-weight: bold">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

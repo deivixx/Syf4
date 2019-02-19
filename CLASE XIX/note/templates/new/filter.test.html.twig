@@ -1,0 +1,49 @@
+{% extends 'new/course.html.twig' %}
+
+
+{% block content %}
+
+
+
+	<h4>Cursos ordenados</h4>
+    <ul>
+        {% for curso in cursos|sort %}
+            <li> 
+                {{ curso }}
+            </li>
+        {% endfor %}
+    </ul>
+
+	<h4>Filtros array</h4>
+    <ul>
+        <li>First:  {{ cursos|first }}</li>
+        <li>Last:   {{ cursos|last }}</li>
+        <li>Lenght: {{ cursos|length }}</li>
+        <li>Join:   {{ cursos|join(',') }}</li>
+
+    </ul>
+
+
+	<h4>Batch</h4>
+    <table border="1">
+        {% for fila in cursos|batch(2, 'No disponible') %}
+            <tr>
+                {% for columna in fila %}
+                    <td>{{ columna|capitalize }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>     
+        
+	<h4>Datos escapados</h4>
+    {% set tag = '<div>Hola</div>' %}
+	{{ tag }}
+	
+	
+    <h4>Datos sin escapar</h4>
+	{{ tag | raw }}    
+    
+
+	<h4>Debug</h4>    
+    {{ dump(cursos) }}    
+{% endblock %}
