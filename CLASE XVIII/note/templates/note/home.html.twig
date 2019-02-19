@@ -9,7 +9,7 @@
 
 {% block javascripts %}
     
-      {{parent()}}   
-      <script src="{{asset('build/home.js')}}"></script>
+      {{parent()}}        
+      {{ encore_entry_script_tags('home') }}
     
 {% endblock %}

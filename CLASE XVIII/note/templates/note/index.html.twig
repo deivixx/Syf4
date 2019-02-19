@@ -1,18 +1,25 @@
 {% extends 'note/notes.html.twig' %}
 
 {% block content %}
-    
+
     <div class="card-columns">
 
-
-        <div class="card">
-            <h5 class="card-header">Nota 2</h5>
-            <div class="card-body">
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Cras justo odio</li>
-                    <li class="list-group-item">Dapibus ac facilisis in</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
-                </ul>
+        <div class="accordion" id="accordionExample">
+            <div class="card">
+                <h5 class="card-header">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Nota 2
+                    </button>
+                </h5>
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Cras justo odio</li>
+                            <li class="list-group-item">Dapibus ac facilisis in</li>
+                            <li class="list-group-item">Vestibulum at eros</li>
+                        </ul>
+                    </div>
+                </div>  
             </div>
         </div>
 
@@ -75,9 +82,8 @@
 
 
 {% block javascripts %}
-    
-      {{parent()}} 
-      <script src="{{asset('build/home.js')}}"></script>
-      <script src="{{asset('build/notes.js')}}"></script>
-    
+
+    {{parent()}} 
+    {{ encore_entry_script_tags('notes') }}
+
 {% endblock %}
