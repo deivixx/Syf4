@@ -1,0 +1,10 @@
+{% extends 'note/notes.html.twig' %}
+
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block content %}
+    {{ form(form) }}
+    
+    
+    {{dump(note)}}
+{% endblock%}

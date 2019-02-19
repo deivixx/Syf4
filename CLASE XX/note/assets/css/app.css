@@ -1,0 +1,12 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+.container {
+  margin-top: 15px;
+  margin-bottom: 60px;
+}
+.navbar-center
+{
+    width: 100%;    
+    text-align: center;
+}
+

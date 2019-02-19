@@ -1,0 +1,85 @@
+{% extends 'new/course.html.twig' %}
+
+
+{% block content %}
+
+    <h4>Listado de cursos</h4>
+    <ul>
+        {% for curso in cursos %}
+            <li> 
+                {{ curso }}
+            </li>
+        {% endfor %}
+    </ul>
+    
+    
+    <h4>Listado de cursos en mayúscula</h4>
+    <ul>
+        {% for curso in cursos %}
+            <li> 
+                {% filter upper %}
+                    {{ curso }}
+                {% endfilter %}
+            </li>
+        {% endfor %}
+    </ul>
+
+    
+    <h4>Listado de cursos con clave</h4>
+    <ul>
+        {% for key, curso in cursos %}
+            <li> 
+                {{key}}.- {{ curso }}
+            </li>
+        {% endfor %}
+    </ul>
+        
+    
+	<h4>Listado de cursos con Loop Index</h4>
+    <ul>
+        {% for curso in cursos %}
+            <li> 
+                {{ loop.index}} .- {{curso }}
+            </li>
+        {% endfor %}
+    </ul>
+    
+    
+	<h4>Listado de cursos con condición</h4>
+    <ul>
+        {% for curso in cursos if curso=='Symfony 4'%}
+            <li> 
+                {{curso }}
+            </li>
+        {% endfor %}
+    </ul>    
+    
+
+	<h4>Listado de cursos con comprobación array vacío</h4>
+    {% set cursos = [] %}    
+    <ul>
+        {% for curso in cursos %}
+            <li> 
+                {{ curso }}
+            </li>
+          {% else %}
+        <li><em>No hay cursos</em></li>
+        {% endfor %}
+    </ul>
+    
+    
+	<h4>Listado de cursos con comprobación array vacío II</h4>
+    {% if cursos %}
+        <ul>
+            {% for curso in cursos %}
+                <li> 
+                    {{ curso }}
+                </li>
+            {% endfor %}
+        </ul>   
+    {% else %}
+        <ul><li><em>No hay cursos</em></li></ul>        
+    {% endif %}         
+	
+	
+{% endblock %}
