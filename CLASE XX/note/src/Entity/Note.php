@@ -2,10 +2,27 @@
 
 namespace App\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
+
 class Note {
 
+    /**
+    * @Assert\NotBlank
+    * @Assert\Length(max=10, maxMessage="Título demasiado largo")
+    */
     protected $title;
+    
+    /**
+    * @Assert\NotBlank
+    * @Assert\Length(max=255, maxMessage="Nota demasiado larga", min=4, minMessage="Nota demasiado corta")
+    */    
     protected $note;
+    
+    /**
+     * @Assert\NotBlank
+     * @Assert\Type("\DateTime")
+     */
     protected $dueDate;
 
     function getTitle() {

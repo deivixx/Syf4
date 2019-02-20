@@ -43,8 +43,8 @@ class NoteController extends AbstractController
         $note->setDueDate(new \DateTime('tomorrow'));
       */
         $form = $this->createFormBuilder($note)
-            ->add('title', TextType::class,  ['label' => 'Título'])
-            ->add('note', TextType::class,  ['label' => 'Nota'])
+            ->add('title', TextType::class,  ['label' => 'Título'/*, 'error_bubbling'=> true*/])
+            ->add('note', TextType::class,  ['label' => 'Nota'/*, 'error_bubbling'=> true*/])
             ->add('dueDate', DateType::class, ['label' => 'Fecha vencimiento'])
             ->add('save', SubmitType::class, ['label' => 'Guardar Nota'])
             ->getForm();
