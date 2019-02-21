@@ -1,0 +1,37 @@
+{% extends 'note/notes.html.twig' %}
+
+{#form_theme form 'form_table_layout.html.twig' #}
+
+{% block content %}
+    {# Renderiza el formulario completo #}
+    {# form(form)#}
+
+    {# Renderiza etiqueta de apertura #}
+    {{ form_start(form,{'method': 'POST', 'attr':{'class':'myform'}}) }}
+
+    {# Renderiza sección errores #}
+    {{ form_errors(form) }}
+
+    {# Renderiza una fila completa para el campo (label, widget, help y errores) #}
+    {{ form_row(form.title, {'attr': {'class': 'form-control'}}) }}
+
+    <div class="form-group">
+        <label for="form_note">{{ form_label(form.note) }}</label>
+        {{ form_widget(form.note, {'attr': {'class': 'form-control'}}) }}
+        <small id="noteHelp" class="form-text text-muted">{{ form_help(form.note) }}</small>
+
+        <div class="form-error" style="color:red;">
+            {{ form_errors(form.note) }}
+        </div>
+    </div>
+
+    {{ form_row(form.dueDate) }}
+
+    {# Renderiza botón submit #}    
+    {{ form_row(form.save) }}
+
+    {# Renderiza etiqueta de cierre y todos los elementos restantes si los hubiera #}
+    {{ form_end(form) }}
+
+
+{% endblock%}
