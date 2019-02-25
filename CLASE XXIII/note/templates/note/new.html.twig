@@ -6,3 +6,11 @@
     {# Renderiza el formulario completo #}
     {{ form(form)}}
 {% endblock%}
+
+
+{% block javascripts %}
+
+    {{parent()}} 
+    {{ encore_entry_script_tags('new_note') }}
+
+{% endblock %}

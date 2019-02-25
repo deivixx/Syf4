@@ -4,7 +4,6 @@ namespace App\Entity;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
-
 class Note {
 
     /**
@@ -48,5 +47,20 @@ class Note {
     public function setDueDate(\DateTime $dueDate = null) {
         $this->dueDate = $dueDate;
     }
+    
+    
+    protected $attachedFile;
+
+    function getAttachedFile() {
+        return $this->attachedFile;
+    }
+
+    function setAttachedFile($attachedFile) {
+        $this->attachedFile = $attachedFile;
+    }
+
+
+    
+    
 
 }

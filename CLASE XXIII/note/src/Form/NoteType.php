@@ -7,6 +7,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+
 
 
 class NoteType extends AbstractType {
@@ -16,6 +18,7 @@ class NoteType extends AbstractType {
                 ->add('title', TextType::class, ['label' => 'Título','help' => 'Escribe el título de la nota'])
                 ->add('note', TextType::class, ['label' => 'Nota', 'help' => 'Escribe la nota'])
                 ->add('dueDate', DateType::class, ['label' => 'Fecha vencimiento', 'help' => 'Fecha en la que caduca'])
+                ->add('attachedFile', FileType::class, ['label' => 'Adjunto',])
                 ->add('save', SubmitType::class, ['label' => 'Guardar Nota'])
         ;
     }
