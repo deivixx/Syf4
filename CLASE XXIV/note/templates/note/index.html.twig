@@ -1,0 +1,95 @@
+{% extends 'note/notes.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('notes') }}
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="card-columns">
+
+        <div class="accordion" id="accordionNota1">
+            <div class="card">
+                <h5 class="card-header">
+                    <button class="btn btn-link card-header-collapse" type="button" data-toggle="collapse" data-target="#collapseNota1" aria-expanded="true" aria-controls="collapseNota1">
+                        Nota 2
+                    </button>
+                </h5>
+                <div id="collapseNota1" class="collapse show card-collapse" aria-labelledby="headingOne" data-parent="#accordionNota1">
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Cras justo odio</li>
+                            <li class="list-group-item">Dapibus ac facilisis in</li>
+                            <li class="list-group-item">Vestibulum at eros</li>
+                        </ul>
+                    </div>
+                </div>  
+            </div>
+        </div>
+
+
+        <div class="card">
+            <h5 class="card-header">Nota 2</h5>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Cras justo odio</li>
+                    <li class="list-group-item">Dapibus ac facilisis in</li>
+                    <li class="list-group-item">Vestibulum at eros</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <h5 class="card-header">Nota 2</h5>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Cras justo odio</li>
+                    <li class="list-group-item">Dapibus ac facilisis in</li>
+                    <li class="list-group-item">Vestibulum at eros</li>
+                </ul>
+            </div>
+        </div><div class="card">
+            <h5 class="card-header">Nota 2</h5>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Cras justo odio</li>
+                    <li class="list-group-item">Dapibus ac facilisis in</li>
+                    <li class="list-group-item">Vestibulum at eros</li>
+                </ul>
+            </div>
+        </div><div class="card">
+            <h5 class="card-header">Nota 2</h5>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Cras justo odio</li>
+                    <li class="list-group-item">Dapibus ac facilisis in</li>
+                    <li class="list-group-item">Vestibulum at eros</li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <h5 class="card-header">Nota 2</h5>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Cras justo odio sdfsdfsdfsd adfdsf sdfdsf sdfsdf sdfsdf sdfsdf sdfsdf sdfsdf sdfsdf</li>
+                    <li class="list-group-item">Dapibus ac facilisis in</li>
+                    <li class="list-group-item">Vestibulum at eros</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+
+{% block javascripts %}
+
+    {{parent()}} 
+    {{ encore_entry_script_tags('notes') }}
+
+{% endblock %}
