@@ -1,0 +1,1 @@
+require('../css/notes.css');
