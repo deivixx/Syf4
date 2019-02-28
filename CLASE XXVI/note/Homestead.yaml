@@ -7,7 +7,7 @@ provider: virtualbox
 #    - ~/.ssh/id_rsa
 folders:
     -
-        map: 'D:\syf4\CLASE XXV\note'
+        map: 'D:\syf4\CLASE XXVI\note'
         to: /home/vagrant/code
 sites:
     -

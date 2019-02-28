@@ -1,0 +1,16 @@
+{% extends 'note/notes.html.twig' %}
+
+{%form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block content %}
+    {# Renderiza el formulario completo #}
+    {{ form(form)}}
+{% endblock%}
+
+
+{% block javascripts %}
+
+    {{parent()}} 
+    {{ encore_entry_script_tags('new_note') }}
+
+{% endblock %}

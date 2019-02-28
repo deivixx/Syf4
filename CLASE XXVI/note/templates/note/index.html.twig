@@ -1,0 +1,43 @@
+{% extends 'note/notes.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('notes') }}
+{% endblock %}
+
+
+{% block content %}
+
+   
+    <div class="card-columns">
+
+        {% for note in notes %}
+        
+        <div class="accordion" id="accordionNote{{loop.index}}">
+            <div class="card">
+                <h5 class="card-header">
+                    <button class="btn btn-link card-header-collapse" type="button" data-toggle="collapse" data-target="#collapseNote{{loop.index}}" aria-expanded="true" aria-controls="collapseNote{{loop.index}}">
+                       {{note.title}}
+                    </button>
+                </h5>
+                <div id="collapseNote{{loop.index}}" class="collapse show card-collapse" aria-labelledby="headingOne" data-parent="#accordionNote{{loop.index}}">
+                    <div class="card-body">
+                        {{note.note|raw}}
+                    </div>
+                </div>  
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+
+
+{% endblock %}
+
+
+{% block javascripts %}
+
+    {{parent()}} 
+    {{ encore_entry_script_tags('notes') }}
+
+{% endblock %}
