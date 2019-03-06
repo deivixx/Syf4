@@ -2,19 +2,26 @@ require('jquery');
 require('../css/new_note.css');
 
 
-
+//Mostramos nombre fichero adjunto
 $('.custom-file-input').on('change', function () {
     var fileName = document.getElementById("note_attachedFile").files[0].name;
     $(this).next('.custom-file-label').addClass("selected").html(fileName);
 });
 
 
-
-// setup an "add a tag" link
-var $addItemLink = $('<a href="#" class="add_item_link">Añade elemento</a>');
-var $newLinkLi = $('<div></div>').append($addItemLink);
-
 jQuery(document).ready(function () {
+
+    addItemLink("");
+
+});
+
+
+function addItemLink() {
+    
+    // setup an "add a item" link
+    var $addItemLink = $('<a href="#" class="add_item_link">Añade elemento</a>');
+    var $newLinkLi = $('<div></div>').append($addItemLink);
+
 
     // div que contiene items 
     var $collectionHolder = $('div.items');
@@ -30,10 +37,8 @@ jQuery(document).ready(function () {
         e.preventDefault();
         addItemForm($collectionHolder, $newLinkLi);
     });
+}
 
-    addRemoveButtonToItems();
-    inject();
-});
 
 function addItemForm($collectionHolder, $newLinkLi) {
     // Obtenemos prototype
@@ -48,10 +53,10 @@ function addItemForm($collectionHolder, $newLinkLi) {
     // Incrementamos index 
     $collectionHolder.data('index', index + 1);
 
-    // Ponemos nuevo formulario dentro de div
-    var $newForm = $('<div></div>').append('<a href="#" class="remove-item"><img  class="inject-me icon red-icon" src="../open-iconic/svg/x.svg" alt="Eliminar"/></a>');
-
+    removeLink=$("#removeLink").clone().attr("hidden",false);
+    var $newForm = $('<div></div>').append(removeLink);
     // Añadimos botón borrar
+
     $newForm.append(newForm);
 
     // Finalmente añadimos formulario
@@ -59,18 +64,6 @@ function addItemForm($collectionHolder, $newLinkLi) {
 
     addRemoveClickEvent();
     inject();
-
-    //$('.datepicker').datepicker($.datepicker.regional["es"]);
-}
-
-
-
-function addRemoveButtonToItems() {
-
-    $("div.form-inline").each(function () {
-        $(this).prepend('<a href="#" class="remove-item"><img  class="inject-me icon red-icon" src="../open-iconic/svg/x.svg" alt="Eliminar"/></a>');
-    });
-    addRemoveClickEvent();
 }
 
 
@@ -93,3 +86,10 @@ function addRemoveClickEvent() {
         return false;
     });
 }
+
+
+module.exports = {
+    inject: inject,
+    addRemoveClickEvent: addRemoveClickEvent,
+    addItemLink: addItemLink
+};

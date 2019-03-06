@@ -14,6 +14,8 @@
     {{ form_row(form.title) }}    
     {{ form_row(form.attachedFile) }}
 
+    
+    <a href="#" class="remove-item" hidden="true" id="removeLink"><img  class="inject-me icon red-icon" src="{{asset("open-iconic/svg/x.svg")}}" alt="Eliminar"/></a>
     <div class="items"  data-prototype="{{ form_widget(form.noteItems.vars.prototype, {'attr': {'class': 'form-inline'}}) |e }}">        
         {% for item in form.noteItems %}
             {{ form_widget(item,{'attr': {'class': 'form-inline'}})}}
@@ -28,7 +30,7 @@
 {% block javascripts %}
 
     {{parent()}} 
-    {{ encore_entry_script_tags('new_note') }}
+    {{ encore_entry_script_tags('edit_note') }}
     <script src="{{asset("js/svg-injector.min.js")}}"></script>
 
 {% endblock %}

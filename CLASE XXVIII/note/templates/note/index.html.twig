@@ -39,12 +39,24 @@
                         </button>
                         <a href="{{path('note_edit',{'id':note.id})}}"><img class="icon" src="{{asset("open-iconic/svg/pencil.svg")}}" alt="Actualizar"></a>
                         <a href="{{path('note_delete',{'id':note.id})}}" onClick="return confirm('Estás seguro?')"><img  class="icon" src="{{asset("open-iconic/svg/x.svg")}}" alt="Eliminar"></a>                        
+                            {% if note.attachedFile is not empty %}
+                            <a href=""><img class="icon" src="{{asset("open-iconic/svg/paperclip.svg")}}" alt="{{note.attachedFile}}"></a>                        
+                            {% endif %}
                     </h5>
                     <div id="collapseNote{{loop.index}}" class="collapse show card-collapse" aria-labelledby="headingOne" data-parent="#accordionNote{{loop.index}}">
                         <div class="card-body">                           
-                            {% for item in note.noteItems %}
-                                {{item.text}}
-                            {% endfor %}
+                            <ul class="list-group list-group-flush">
+                                {% for item in note.noteItems %}
+
+                                    <li class="list-group-item">{{item.text}}
+                                        {% if item.dueDate is not empty %}
+                                            - ( {{ item.dueDate|date("d/m/Y")}} )
+                                        {% endif %}                                        
+
+                                    </li>
+                                {% endfor %}
+                            </ul>                           
+
                         </div>
                     </div>  
                 </div>
