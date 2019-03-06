@@ -1,0 +1,67 @@
+{% extends 'note/notes.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('notes') }}
+{% endblock %}
+
+
+{% block content %}
+
+    <a href="{{path('note_new')}}" ><img class="icon" src="open-iconic/svg/plus.svg" /></a> Nueva Nota
+    <section id="head_alert" style="margin-bottom: 5px;">
+
+        {% for flash_message in app.session.flashBag.get('notice') %}
+            <div class="alert alert-success alert-dismissable">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                <strong>{{ flash_message }}</strong>
+            </div>
+        {% endfor %}
+
+        {% for flash_message in app.session.flashBag.get('error') %}
+            <div class="alert alert-danger alert-dismissable">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                <strong>{{ flash_message }}</strong>
+            </div>
+        {% endfor %}
+
+    </section>
+
+    <div class="card-columns">
+
+        {% for note in notes %}
+
+            <div class="accordion" id="accordionNote{{loop.index}}">
+                <div class="card">
+                    <h5 class="card-header">
+                        <button class="btn btn-link card-header-collapse" type="button" data-toggle="collapse" data-target="#collapseNote{{loop.index}}" aria-expanded="true" aria-controls="collapseNote{{loop.index}}">
+                            {{note.title}}
+                        </button>
+                        <a href="{{path('note_edit',{'id':note.id})}}"><img class="icon" src="{{asset("open-iconic/svg/pencil.svg")}}" alt="Actualizar"></a>
+                        <a href="{{path('note_delete',{'id':note.id})}}" onClick="return confirm('Estás seguro?')"><img  class="icon" src="{{asset("open-iconic/svg/x.svg")}}" alt="Eliminar"></a>                        
+                    </h5>
+                    <div id="collapseNote{{loop.index}}" class="collapse show card-collapse" aria-labelledby="headingOne" data-parent="#accordionNote{{loop.index}}">
+                        <div class="card-body">                           
+                            {% for item in note.noteItems %}
+                                {{item.text}}
+                            {% endfor %}
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        {% else %}
+            <h3><em>No hay notas para mostrar</em></h3>
+        {% endfor %}
+    </div>
+
+
+{% endblock %}
+
+
+
+{% block javascripts %}
+
+    {{parent()}} 
+    {{ encore_entry_script_tags('notes') }}
+
+{% endblock %}
