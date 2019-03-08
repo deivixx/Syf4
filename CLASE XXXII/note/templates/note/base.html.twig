@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Gestor de notas{% endblock %}</title>
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>     
+        {% block head %}           
+            <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+
+                <a class="navbar-brand" href="#">NOTAS CON SYMFONY 4</a>
+
+
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+
+                    <div>
+                        <div class="navItemLink welcomeText">Bienvenido, {{ app.user.username }}</div>
+                        <div class="navItemLink"><a class="nav-link" title="Salir" href="{{ path('app_logout') }}">
+                                <img class="icon" src="{{asset("open-iconic/svg/account-logout.svg")}}"/> 
+                            </a></div>
+                    </div>
+                {% else %}
+
+                    <div>
+                        <div class="navItemLink"><a class="nav-link  registerLink" href="{{ path('app_register') }}">Regístrate</a></div>
+                        <div class="navItemLink"><a class="nav-link" href="{{ path('app_login') }}"><img class="icon" src="{{asset("open-iconic/svg/account-login.svg")}}"/></a></div>
+                    </div>
+
+                {% endif %}
+
+            </nav>
+        {% endblock %}
+
+        <div class="container">
+            {% block body %} 
+
+                {% block content %}
+                {% endblock %}
+
+            {% endblock %}            
+        </div>
+        {% block foot %}            
+            <nav class="navbar fixed-bottom navbar-light bg-light">
+                <span class="navbar-text  navbar-center">Symfony 4 - Gestor de notas</span>
+            </nav>
+        {% endblock %}
+
+        {% block javascripts %}
+
+            {{ encore_entry_script_tags('app') }}
+
+        {% endblock %}
+    </body>
+</html>

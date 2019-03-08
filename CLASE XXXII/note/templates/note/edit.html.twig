@@ -1,0 +1,36 @@
+{% extends 'note/notes.html.twig' %}
+
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('new_note') }}
+{% endblock %}
+{% block content %}
+    {# Renderiza el formulario completo #}
+    {{ form_start(form) }}
+
+    {{ form_row(form.title) }}    
+    {{ form_row(form.attachedFile) }}
+
+    
+    <a href="#" class="remove-item" hidden="true" id="removeLink"><img  class="inject-me icon red-icon" src="{{asset("open-iconic/svg/x.svg")}}" alt="Eliminar"/></a>
+    <div class="items"  data-prototype="{{ form_widget(form.noteItems.vars.prototype, {'attr': {'class': 'form-inline'}}) |e }}">        
+        {% for item in form.noteItems %}
+            {{ form_widget(item,{'attr': {'class': 'form-inline'}})}}
+        {% endfor %}    
+    </div>
+
+    {{ form_end(form) }}
+
+{% endblock%}
+
+
+{% block javascripts %}
+
+    {{parent()}} 
+    {{ encore_entry_script_tags('edit_note') }}
+    <script src="{{asset("js/svg-injector.min.js")}}"></script>
+
+{% endblock %}
