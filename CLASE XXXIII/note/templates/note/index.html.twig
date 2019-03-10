@@ -8,7 +8,7 @@
 
 {% block content %}
 
-    <a href="{{path('note_new')}}" ><img class="icon" src="open-iconic/svg/plus.svg" /></a> Nueva Nota
+    <a href="{{path('note_new')}}" class="Link" ><img class="icon" src="open-iconic/svg/plus.svg" /> Nueva Nota</a> 
     <section id="head_alert" style="margin-bottom: 5px;">
 
         {% for flash_message in app.session.flashBag.get('notice') %}

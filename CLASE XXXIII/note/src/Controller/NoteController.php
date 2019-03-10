@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Note;
+use App\Entity\User;
 use App\Form\NoteType;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -50,19 +51,20 @@ class NoteController extends AbstractController {
 
 
         if ($form->isSubmitted() && $form->isValid()) {
-        // $form->getData() Contiene los datos enviados
-        $note = $form->getData();
+        
+			// $form->getData() Contiene los datos enviados
+			$note = $form->getData();
+			$note->setUser($this->getUser());
+			// ... Aquí podríamos añadir la nota a bbdd
+			$em->persist($note);
+			$em->flush();
 
-        // ... Aquí podríamos añadir la nota a bbdd
-        $em->persist($note);
-        $em->flush();
+			$this->addFlash(
+			'notice', 'Nota creada con éxito'
+			);
 
-        $this->addFlash(
-        'notice', 'Nota creada con éxito'
-        );
-
-        // Redirigimos a una pantalla diferente
-        return $this->redirectToRoute('note_index');
+			// Redirigimos a una pantalla diferente
+			return $this->redirectToRoute('note_index');
         }
 
         return $this->render('note/new.html.twig', [
