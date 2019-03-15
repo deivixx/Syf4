@@ -1,0 +1,8 @@
+security:
+    firewalls:
+        main:
+            http_basic: true
+        
+
+
+
