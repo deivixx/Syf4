@@ -4,7 +4,6 @@ namespace App\Tests\Entity;
 
 use App\Entity\Note;
 use App\Entity\User;
-use PHPUnit\Framework\TestCase;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use TypeError;
 
