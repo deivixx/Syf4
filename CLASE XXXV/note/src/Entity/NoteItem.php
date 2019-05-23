@@ -10,7 +10,6 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\DateFilter;
 
 /**
  * @ApiResource
- * @ApiFilter(DateFilter::class, properties={"dueDate"})
  * @ORM\Entity(repositoryClass="App\Repository\NoteItemRepository")
  */
 class NoteItem

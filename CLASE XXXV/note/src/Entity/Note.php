@@ -11,7 +11,6 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 
 /**
  * @ApiResource
- * @ApiFilter(SearchFilter::class, properties={"id": "exact", "title": "partial"})
  * @ORM\Entity(repositoryClass="App\Repository\NoteRepository")
  */
 class Note

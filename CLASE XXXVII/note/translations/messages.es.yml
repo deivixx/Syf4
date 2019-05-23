@@ -1,0 +1,18 @@
+notas: NOTAS
+nueva.nota: Nueva Nota
+bienvenido: Bienvenido
+titulo: Gestor de notas
+titulo.nav: NOTAS CON SYMFONY 4
+sin.notas: No hay notas para mostrar
+registra: Regístrate
+email.not.found: No se ha encontrado el email
+recuerda: Recuérdame
+
+#FORMS
+enviar: Enviar
+guardar.nota: Guardar Nota
+titulo.nota: Título
+titulo.help: Escribe el título de la nota
+adjunto: Adjunto
+add.element: Añade elemento
+texto: Texto

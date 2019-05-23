@@ -1,0 +1,19 @@
+notas: NOTES
+nueva.nota: New Note
+bienvenido: Welcome
+titulo: Notes Manager
+titulo.nav: NOTES WITH SYMFONY 4
+sin.notas: There is no any notes to be shown
+registra: Register
+email.not.found: Email could not be found.
+recuerda: Remember me
+
+#FORMS
+enviar: Send
+guardar.nota: Save Note
+titulo.nota: Title
+titulo.help: Write the note's title
+adjunto: Attached
+add.element: Add element
+texto: Text
+

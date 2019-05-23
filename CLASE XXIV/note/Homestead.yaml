@@ -16,6 +16,6 @@ sites:
 databases:
     - notes
 name: notes
+mariadb: true
 hostname: notes
 
-mariadb: true

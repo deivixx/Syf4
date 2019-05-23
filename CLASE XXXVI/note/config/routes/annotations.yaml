@@ -1,0 +1,6 @@
+controllers:
+    resource: ../../src/Controller/
+    type: annotation
+    prefix:
+        es: '' # don't prefix URLs for Spanish, the default locale
+        en: '/en'
